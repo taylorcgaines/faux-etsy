@@ -7,8 +7,10 @@ import products from './data/products';
 // The state will also require a property for the current state of filterable data
 const initialState = {
   products: products,
-  filterProducts: []
+  filter: ""
 }
+
+
 
 // Finish writing the reducer for the `FILTER_PRODUCTS` action
 // Provide the reducer function delration with the necessary parameters
@@ -19,7 +21,12 @@ const reducer = function(state = initialState, action) {
     // Use the `update` operator provided by `immutability-helper`
     // to update the the state property describing current state of filterable data
     // provided by the `action.payload`
-    console.log(state)
+    if(action.type === FILTER_PRODUCTS){
+      console.log(FILTER_PRODUCTS)
+      state.filter = action.payload
+      // console.log(state)
+      return state
+    }
     return state
 }
 
