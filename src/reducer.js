@@ -25,7 +25,10 @@ const reducer = function(state = initialState, action) {
       console.log(FILTER_PRODUCTS)
       state.filter = action.payload
       // console.log(state)
-      return state
+      // return state
+      return Object.assign({},{
+        filter:action.payload,
+        products:state.products})
     }
     return state
 }
